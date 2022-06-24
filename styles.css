@@ -1,0 +1,105 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+.spinner {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  overflow: hidden;
+  position: relative;
+  animation: text-color 2s ease-in-out infinite alternate;
+}
+
+.spinner-sector {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 15px solid transparent;
+  mix-blend-mode: overlay;
+  animation: rotate var(--duration) var(--timing) infinite;
+  pointer-events: none;
+}
+
+.spinner-sector-red {
+  border-top-color: lightcoral;
+  --duration: 1.5s;
+  --timing: ease-in-out;
+}
+
+.spinner-sector-blue {
+  border-left-color: lightblue;
+  --duration: 2s;
+  --timing: ease-in;
+}
+
+.spinner-sector-green {
+  border-right-color: lightgreen;
+  --duration: 2.5s;
+  --timing: ease-out;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes text-color {
+  0% {
+    color: rgba(0, 0, 0, 1);
+  }
+
+  50% {
+    color: rgba(0, 0, 0, .5);
+  }
+
+  100% {
+    color: rgba(0, 0, 0, .1);
+  }
+}
+
+.spinner-2 {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  overflow: hidden;
+  position: relative;
+  animation: text-color 2s ease-in-out infinite alternate;
+}
+
+.spinner-2::before,
+.spinner-2::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 15px solid transparent;
+  mix-blend-mode: overlay;
+  animation: rotate var(--duration) var(--timing) infinite;
+  pointer-events: none;
+}
+
+.spinner-2::before {
+  border-left-color: lightblue;
+  --duration: 2s;
+  --timing: ease-in;
+}
+
+.spinner-2::after {
+  border-right-color: lightgreen;
+  --duration: 2.5s;
+  --timing: ease-out;
+}
